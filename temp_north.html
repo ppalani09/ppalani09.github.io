@@ -2,14 +2,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Weather & Latitude Analysis</title>
+  <title>Temperature vs. Northern Latitude</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand active" href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/index.html">Weather & Latitude Analysis</a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,42 +40,16 @@
   </nav>
 
   <div class="container">
-    
-    <div class = "row" style = "margin: 20px 0px 0px 0px;">
-      
-      <div class="jumbotron col-md-9" style = "margin: 0px 10px 0px 0px;">
-        <h1 class="display-4">Project Summary</h1>
-        <hr class="my-4">
-        <img width="300" src="https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/810/f/weather.jpg" align="left" style = "margin: 0px 25px 0px 0px;">
-        <p class = "lead">The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled data from the Open Weather Map API to assemble a databset on over 500 cities.<br>
+    <div class="jumbotron bg-white">
+      <h1 class="display-4">Temperature vs. Northern Latitude</h1>
+      <hr class="my-4">
+      <img width="600" src="C:/Users/palan/NW-Data-Science/ppalani09.github.io/assets/images/Temp vs. North Latitude.png" align="left" style = "margin: 0px 25px 0px 0px;">
+      <p class = "lead">In this plot, we show city temperatures plotted against latitude values of cities in the Northern hemisphere. As latitude values increase, we are moving away from the equator and towards the North Pole. <br>
           <br>
-        After assembling the dataset, we used Matplotlib to plot various aspects of thew eather vs. latitude. Factors we looked at included temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of hte analysis, as well as eplanations and descriptions of any trends and correlations witnessed. <br> </p>
-        <a class="btn btn-primary btn-lg" href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/temp_absLatitude.html" role="button" style = "margin: 25px 0px 0px 0px;">Look At Plots!</a>
-      </div>
-
-        <div class="card bg-white" style="width: 13rem;">
-            <div class="card-body">
-              <h6 class="card-title" align="center" style = "margin: 5px 0px 0px 0px;">Visualizations</h6>
-              <a href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/temp_absLatitude.html">
-                <img width="165" src="C:/Users/palan/NW-Data-Science/ppalani09.github.io/assets/images/City Temp vs. Abs Latitude.png" alt="..." align="center" style = "margin: 25px 0px 35px 0px;">
-              </a>
-              <a href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/temp_north.html">
-                <img width="165" src="C:/Users/palan/NW-Data-Science/ppalani09.github.io/assets/images/Temp vs. North Latitude.png" alt="..." align="center" style = "margin: 0px 0px 35px 0px;">
-              </a>
-              <a href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/temp_south.html">
-                <img width="165" src="C:/Users/palan/NW-Data-Science/ppalani09.github.io/assets/images/Temp vs. South Latitude.png" alt="..." align="center" style = "margin: 0px 0px 35px 0px;">
-              </a>
-              <a href="C:/Users/palan/NW-Data-Science/ppalani09.github.io/humidity_absLatitude.html">
-                <img width="165" src="C:/Users/palan/NW-Data-Science/ppalani09.github.io/assets/images/Humidity vs. Abs Latitude.png" alt="..." align="center" style = "margin: 0px 0px 0px 0px;">
-              </a>
-            </div>
-          </div>
-        </div>
-
+        With increasing latitude - that is, as move further away from the equator and towards the North Pole - city temperatures decrease. Since the cities queried were randomly selected from among Northern Hemisphere cities, we can definitively assert, with data, that temperature decreases as one moves further away from the equator in the Northern Hemisphere. <br> </p>
     </div>
-
   </div>
-
+  
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
