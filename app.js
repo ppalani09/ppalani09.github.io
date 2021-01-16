@@ -21,22 +21,6 @@ function optionChanged(user_selection) {
   // call functions to create plots & populate data tables
   populate_demoData(user_selection, demo_data)
 
-  parse_and_call(user_selection, data);
-
-  };
-
-
-function parse_and_call(user_selection, data) {
-    
-  // parse raw data to specific subsets
-  
-
-  
-
-  
-  // plot_top10otus(user_selection, otu_data)
-  // plot_bubbleChart(user_selection, otu_data)
-
   };
 
 
