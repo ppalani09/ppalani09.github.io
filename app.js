@@ -23,12 +23,6 @@ function optionChanged(user_selection) {
 
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
-    // Prevent the page from refreshing
-    d3.event.preventDefault();
-
-    // Select the input element and get the raw HTML node
-    
-
     // Filter data per inputted form data
     let filteredData_demo = dataset.filter(names => individual_data.id == selected_individual)[0];
 
