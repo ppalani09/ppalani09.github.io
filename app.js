@@ -30,7 +30,8 @@ function populate_demoData(user_selection, dataset) {
   // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
   // Filter data per inputted form data
-  let filteredData_demo = dataset.filter(sample => sample.id == user_selection);
+  console.log("User Selected", user_selection)
+  let filteredData_demo = dataset.filter(sample => sample("id")[0] == user_selection);
 
   document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
   document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
