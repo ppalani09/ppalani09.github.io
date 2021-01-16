@@ -5,12 +5,10 @@ function optionChanged(user_selection) {
   console.log(user_selection);
 
   // read in json data
-  let data = d3.json("samples.json")
-
-  // parse json data to subsets
-  let individual_data = data["names"]
-  let demo_data = data["metadata"]
-  let otu_data = data["samples"]
+  let data = d3.json("raw_data.json")
+  let individual_data = d3.json("names.json")
+  let demo_data = d3.json("metadata.json")
+  let otu_data = d3.json("samples.json")
 
   // confirm data sets have been mapped
   console.log(data)
