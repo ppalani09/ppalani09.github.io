@@ -6,12 +6,16 @@ function optionChanged(user_selection) {
 
   // read in json data
   var data = d3.json("samples.json")
-  console.log(data)
 
   // map raw data to specific data sets
   let individual_data = data.names
   let demo_data = data.metadata
   let otu_data = data.samples
+
+  // confirm inputs processing
+  console.log(data.names)
+  console.log(data.metadata)
+  console.log(data.samples)
 
   // Get the value property of the input element
   var user_selection = d3.select("#selDataset").property("value");
