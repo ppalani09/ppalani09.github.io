@@ -5,20 +5,21 @@ function optionChanged(user_selection) {
   console.log(selected_individual);
 
   // read in json data
-  d3.json("samples.json", function(data) {
-    console.log(data);
+  d3.json("samples.json", function mapData(data) {
+    
+    // map raw data to specific subsets
+    let individual_data = data.names
+    let demo_data = data.metadata
+    let otu_data = data.samples
+
+    // confirm data sets have been mapped
+    console.log(data)
+    console.log(individual_data)
+    console.log(demo_data)
+    console.log(otu_data)
+
   });
 
-  // map raw data to specific data sets
-  let individual_data = data.names
-  let demo_data = data.metadata
-  let otu_data = data.samples
-
-  // confirm inputs processing
-  console.log(data)
-  console.log(individual_data)
-  console.log(demo_data)
-  console.log(otu_data)
 
   // Get the value property of the input element
   var user_selection = d3.select("#selDataset").property("value");
