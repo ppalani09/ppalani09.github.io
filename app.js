@@ -13,16 +13,17 @@ function optionChanged(user_selection) {
   let otu_data = data.samples
 
   // confirm inputs processing
-  console.log(data.names)
-  console.log(data.metadata)
-  console.log(data.samples)
+  console.log(data)
+  console.log(individual_data)
+  console.log(demo_data)
+  console.log(otu_data)
 
   // Get the value property of the input element
   var user_selection = d3.select("#selDataset").property("value");
 
-  // use individual selection to match against demographic data
+  // call functions to create plots & populate data tables
   var demo_output = runRetrieve_demoData(user_selection, demo_data)
-
+  var barchart_output = runRetrieve_otuData(user_selection, otu_data)
 
   function runRetrieve_demoData(selected_individual, dataset) {
 
@@ -41,6 +42,31 @@ function optionChanged(user_selection) {
   };
 
 
+
+  function runRetrieve_otuData(selected_individual, dataset) {
+
+    // ------------- CREATE TOP 10 OTUs PLOT FROM USER SELECTION ------------- //
+
+    // Filter data per inputted form data
+    let filteredData_otu = dataset.filter(sample => sample.id == selected_individual)[0];
+
+    otu_ids = filteredData_otu.otu_ids
+    otu_labels = filteredData_otu.otu_labels
+    otu_values = filteredData_otu.samples_values
+    
+    Plotly.newPlot("bar", [{
+
+      x: tou_values.slice(0, 10).reverse(),
+      y: otu_ids.slice(0, 10).reverse(),
+      text: otu_labels.slice(0, 10).reverse(),
+      type: "bar",
+      orientation: "h"}],
+      {title: "Top 10 OTUs"}
+
+      );
+
+
+  };
 
   // use individual selection to match against otu data
 
