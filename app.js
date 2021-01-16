@@ -39,12 +39,12 @@ function populate_demoData(user_selection, dataset) {
   console.log("User Selected", user_selection)
   let filteredData_demo = dataset.filter(sample => sample.id == user_selection);
 
-  document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
-  document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
-  document.getElementById("age-text").innerHTML = filteredData_demo.age[0]
-  document.getElementById("location-text").innerHTML = filteredData_demo.location[0]
-  document.getElementById("bb-text").innerHTML = filteredData_demo.bbtype[0]
-  document.getElementById("freq-text").innerHTML = filteredData_demo.wfreq[0]
+  document.getElementById("ethnicity-text").innerHTML = filteredData_demo[0].ethnicity
+  document.getElementById("gender-text-text").innerHTML = filteredData_demo[0].gender
+  document.getElementById("age-text").innerHTML = filteredData_demo[0].age
+  document.getElementById("location-text").innerHTML = filteredData_demo[0].location
+  document.getElementById("bb-text").innerHTML = filteredData_demo[0].bbtype
+  document.getElementById("freq-text").innerHTML = filteredData_demo[0].wfreq
 
   };
 
