@@ -5,46 +5,47 @@ function optionChanged(user_selection) {
   console.log(user_selection);
 
   // read in json data
-  d3.json("samples.json", function mapData(data) {
-    
-    // map raw data to specific subsets
-    let individual_data = data.names
-    let demo_data = data.metadata
-    let otu_data = data.samples
+  var data = d3.json("samples.json");
 
-    // confirm data sets have been mapped
-    console.log(data)
-    console.log(individual_data)
-    console.log(demo_data)
-    console.log(otu_data)
-
-    // call functions to create plots & populate data tables
-    populate_demoData(user_selection, demo_data)
-    // plot_top10otus(user_selection, otu_data)
-    // plot_bubbleChart(user_selection, otu_data)
-
-  });
-
-  // Get the value property of the input element
-  // var user_selection = d3.select("#selDataset").property("value");
+  parse_and_call(user_selection, data);
 
   };
 
 
+function parse_and_call(user_selection, data) {
+    
+  // parse raw data to specific subsets
+  let individual_data = data.names
+  let demo_data = data.metadata
+  let otu_data = data.samples
+
+  // confirm data sets have been mapped
+  console.log(data)
+  console.log(individual_data)
+  console.log(demo_data)
+  console.log(otu_data)
+
+  // call functions to create plots & populate data tables
+  populate_demoData(user_selection, demo_data)
+  // plot_top10otus(user_selection, otu_data)
+  // plot_bubbleChart(user_selection, otu_data)
+
+  };
+
 
 function populate_demoData(user_selection, dataset) {
 
-    // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
+  // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
-    // Filter data per inputted form data
-    let filteredData_demo = dataset.filter(sample => sample.id == user_selection)[0];
+  // Filter data per inputted form data
+  let filteredData_demo = dataset.filter(sample => sample.id == user_selection)[0];
 
-    document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
-    document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
-    document.getElementById("age-text").innerHTML = filteredData_demo.age[0]
-    document.getElementById("location-text").innerHTML = filteredData_demo.location[0]
-    document.getElementById("bb-text").innerHTML = filteredData_demo.bbtype[0]
-    document.getElementById("freq-text").innerHTML = filteredData_demo.wfreq[0]
+  document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
+  document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
+  document.getElementById("age-text").innerHTML = filteredData_demo.age[0]
+  document.getElementById("location-text").innerHTML = filteredData_demo.location[0]
+  document.getElementById("bb-text").innerHTML = filteredData_demo.bbtype[0]
+  document.getElementById("freq-text").innerHTML = filteredData_demo.wfreq[0]
 
   };
 
@@ -52,25 +53,25 @@ function populate_demoData(user_selection, dataset) {
 
 function plot_top10otus(selected_individual, dataset) {
 
-    // ------------- CREATE TOP 10 OTUs PLOT FROM USER SELECTION ------------- //
+  // ------------- CREATE TOP 10 OTUs PLOT FROM USER SELECTION ------------- //
 
-    // Filter data per inputted form data
-    let filteredData_otu = dataset.filter(sample => sample.id == selected_individual)[0];
+  // Filter data per inputted form data
+  let filteredData_otu = dataset.filter(sample => sample.id == selected_individual)[0];
 
-    otu_ids = filteredData_otu.otu_ids
-    otu_labels = filteredData_otu.otu_labels
-    otu_values = filteredData_otu.samples_values
+  otu_ids = filteredData_otu.otu_ids
+  otu_labels = filteredData_otu.otu_labels
+  otu_values = filteredData_otu.samples_values
     
-    Plotly.newPlot("bar", [{
+  Plotly.newPlot("bar", [{
 
-      x: tou_values.slice(0, 10).reverse(),
-      y: otu_ids.slice(0, 10).reverse(),
-      text: otu_labels.slice(0, 10).reverse(),
-      type: "bar",
-      orientation: "h"}],
-      {title: "Top 10 OTUs"}
+    x: tou_values.slice(0, 10).reverse(),
+    y: otu_ids.slice(0, 10).reverse(),
+    text: otu_labels.slice(0, 10).reverse(),
+    type: "bar",
+    orientation: "h"}],
+    {title: "Top 10 OTUs"}
 
-      );
+    );
 
 
   };
