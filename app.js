@@ -5,7 +5,7 @@ function optionChanged(user_selection) {
   console.log(selected_individual);
 
   // read in json data
-  var data = d3.json("samples.json")
+  d3.json("samples.json").then(data => {console.log(data)})
 
   // map raw data to specific data sets
   let individual_data = data.names
