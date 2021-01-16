@@ -26,15 +26,14 @@ function optionChanged(user_selection) {
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
     // Filter data per inputted form data
-    let filteredData_demo = dataset.filter(names => individual_data.id == selected_individual)[0];
+    let filteredData_demo = individual_data.filter(sample => sample.id == selected_individual)[0];
 
-    document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity
-    document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender
-    document.getElementById("age-text").innerHTML = filteredData_demo.age
-    document.getElementById("location-text").innerHTML = filteredData_demo.location
-    document.getElementById("bb-text").innerHTML = filteredData_demo.bbtype
-    document.getElementById("freq-text").innerHTML = filteredData_demo.wfreq
-
+    document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
+    document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
+    document.getElementById("age-text").innerHTML = filteredData_demo.age[0]
+    document.getElementById("location-text").innerHTML = filteredData_demo.location[0]
+    document.getElementById("bb-text").innerHTML = filteredData_demo.bbtype[0]
+    document.getElementById("freq-text").innerHTML = filteredData_demo.wfreq[0]
 
   };
 
