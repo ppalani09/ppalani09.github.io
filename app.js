@@ -21,6 +21,8 @@ function optionChanged(user_selection) {
 
   function runRetrieve_demoData(selected_individual, dataset) {
 
+    console.log(selected_individual,dataset);
+
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
     // Filter data per inputted form data
