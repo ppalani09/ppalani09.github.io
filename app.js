@@ -8,7 +8,7 @@ function optionChanged(user_selection) {
   let data = d3.json("samples.json")
 
   // parse json data to subsets
-  let individual_data = data.names
+  let individual_data = data.names[0]
   let demo_data = JSON.parse(data.metadata)
   let otu_data = data.samples
 
