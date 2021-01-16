@@ -8,8 +8,8 @@ function optionChanged(user_selection) {
   let data = d3.json("samples.json")
 
   // parse json data to subsets
-  let individual_data = data.names[0]
-  let demo_data = data.metadata[0]
+  let individual_data = data["names"]
+  let demo_data = data["metadata"]
   let otu_data = data["samples"]
 
   // confirm data sets have been mapped
@@ -20,6 +20,9 @@ function optionChanged(user_selection) {
 
   // call functions to create plots & populate data tables
   populate_demoData(user_selection, demo_data)
+  // plot_top10otus(user_selection, otu_data)
+  // plot_bubbleChart(user_selection, otu_data)
+
 
   };
 
@@ -42,12 +45,12 @@ function populate_demoData(user_selection, dataset) {
 
 
 
-function plot_top10otus(selected_individual, dataset) {
+function plot_top10otus(user_selection, dataset) {
 
   // ------------- CREATE TOP 10 OTUs PLOT FROM USER SELECTION ------------- //
 
   // Filter data per inputted form data
-  let filteredData_otu = dataset.filter(sample => sample.id == selected_individual)[0];
+  let filteredData_otu = dataset.filter(sample => sample.id == user_selection);
 
   otu_ids = filteredData_otu.otu_ids
   otu_labels = filteredData_otu.otu_labels
@@ -63,6 +66,30 @@ function plot_top10otus(selected_individual, dataset) {
     {title: "Top 10 OTUs"}
 
     );
+
+
+  };
+
+
+function plot_bubbleChart(user_selection, dataset) {
+
+  // ------------- CREATE BUBBLE CHART PLOT FROM USER SELECTION ------------- //
+
+  // Filter data per inputted form data
+  let filteredData_otu = dataset.filter(sample => sample.id == user_selection);
+
+  otu_ids = filteredData_otu.otu_ids
+  otu_labels = filteredData_otu.otu_labels
+  otu_values = filteredData_otu.samples_values
+    
+  Plotly.newPlot("bubble", [{
+    x: otu_ids,
+    y: otu_values,
+    mode: 'markers',
+    marker: {color: otu_ids, size: otu_values},
+    text: otu_labels}],
+    {title: "OTUs Bubble Chart"}
+  );
 
 
   };
