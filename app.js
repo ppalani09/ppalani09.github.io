@@ -9,7 +9,7 @@ function optionChanged(user_selection) {
 
   // parse json data to subsets
   let individual_data = data.names[0]
-  let demo_data = JSON.parse(data.metadata)
+  let demo_data = data.metadata[0]
   let otu_data = data.samples
 
   // confirm data sets have been mapped
