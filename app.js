@@ -8,9 +8,9 @@ function optionChanged(user_selection) {
   var data = d3.json("samples.json")
 
   // map raw data to specific data sets
-  var individual_data = data.names
-  var demo_data = data.metadata
-  var otu_data = data.samples
+  let individual_data = data.names
+  let demo_data = data.metadata
+  let otu_data = data.samples
 
   // Get the value property of the input element
   var user_selection = d3.select("#selDataset").property("value");
@@ -21,12 +21,12 @@ function optionChanged(user_selection) {
 
   function runRetrieve_demoData(selected_individual, dataset) {
 
-    console.log(individual_data);
+    console.log(demo_data);
 
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
     // Filter data per inputted form data
-    let filteredData_demo = individual_data.filter(sample => sample.id == selected_individual);
+    let filteredData_demo = demo_data.filter(sample => sample.id == selected_individual);
 
     document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
     document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
