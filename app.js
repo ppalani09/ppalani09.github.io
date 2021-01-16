@@ -1,8 +1,8 @@
 
 function optionChanged(user_selection) {
 
-  var selected_individual = user_selection;
-  console.log(selected_individual);
+  // var selected_individual = user_selection;
+  console.log(user_selection);
 
   // read in json data
   d3.json("samples.json", function mapData(data) {
@@ -18,22 +18,26 @@ function optionChanged(user_selection) {
     console.log(demo_data)
     console.log(otu_data)
 
+    // call functions to create plots & populate data tables
+    populate_demoData(user_selection, demo_data)
+    // plot_top10otus(user_selection, otu_data)
+    // plot_bubbleChart(user_selection, otu_data)
+
   });
 
-
   // Get the value property of the input element
-  var user_selection = d3.select("#selDataset").property("value");
+  // var user_selection = d3.select("#selDataset").property("value");
 
-  // call functions to create plots & populate data tables
-  var demo_output = runRetrieve_demoData(user_selection, demo_data)
-  var barchart_output = runRetrieve_otuData(user_selection, otu_data)
+  };
 
-  function runRetrieve_demoData(selected_individual, dataset) {
+
+
+function populate_demoData(user_selection, dataset) {
 
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
     // Filter data per inputted form data
-    let filteredData_demo = dataset.filter(sample => sample.id == selected_individual);
+    let filteredData_demo = dataset.filter(sample => sample.id == user_selection)[0];
 
     document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
     document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
@@ -46,7 +50,7 @@ function optionChanged(user_selection) {
 
 
 
-  function runRetrieve_otuData(selected_individual, dataset) {
+function plot_top10otus(selected_individual, dataset) {
 
     // ------------- CREATE TOP 10 OTUs PLOT FROM USER SELECTION ------------- //
 
@@ -67,34 +71,6 @@ function optionChanged(user_selection) {
       {title: "Top 10 OTUs"}
 
       );
-
-
-  };
-
-  // use individual selection to match against otu data
-
-
-
-
-  // identify the top 10 otu's for the selected individual
-
-
-
-
-
-  // create bar chart & populate with top 10 otu's
-
-
-
-
-  // create a bubble chart & populate with otu labels & sample values
-
-
-
-
-  // populate demographic data in the demographic info box
-
-
 
 
   };
