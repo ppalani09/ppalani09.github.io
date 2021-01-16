@@ -26,12 +26,10 @@ function optionChanged(user_selection) {
 
   function runRetrieve_demoData(selected_individual, dataset) {
 
-    console.log(demo_data);
-
     // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
     // Filter data per inputted form data
-    let filteredData_demo = demo_data.filter(sample => sample.id == selected_individual);
+    let filteredData_demo = dataset.filter(sample => sample.id == selected_individual);
 
     document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
     document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
