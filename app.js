@@ -5,16 +5,9 @@ function optionChanged(user_selection) {
   console.log(user_selection);
 
   // read in json data
-  var data = d3.json("samples.json");
+  let data = JSON.parse(d3.json("samples.json"))
 
-  parse_and_call(user_selection, data);
-
-  };
-
-
-function parse_and_call(user_selection, data) {
-    
-  // parse raw data to specific subsets
+  // parse json data to subsets
   let individual_data = data.names
   let demo_data = data.metadata
   let otu_data = data.samples
@@ -27,6 +20,20 @@ function parse_and_call(user_selection, data) {
 
   // call functions to create plots & populate data tables
   populate_demoData(user_selection, demo_data)
+
+  parse_and_call(user_selection, data);
+
+  };
+
+
+function parse_and_call(user_selection, data) {
+    
+  // parse raw data to specific subsets
+  
+
+  
+
+  
   // plot_top10otus(user_selection, otu_data)
   // plot_bubbleChart(user_selection, otu_data)
 
@@ -38,7 +45,7 @@ function populate_demoData(user_selection, dataset) {
   // ------------- GET DEMOGRAPHIC DATA FROM USER SELECTION ------------- //
 
   // Filter data per inputted form data
-  let filteredData_demo = dataset.filter(sample => sample.id == user_selection)[0];
+  let filteredData_demo = dataset.filter(sample => sample.id == user_selection);
 
   document.getElementById("ethnicity-text").innerHTML = filteredData_demo.ethnicity[0]
   document.getElementById("gender-text-text").innerHTML = filteredData_demo.gender[0]
