@@ -84,20 +84,26 @@ d3.json(earthquake_query, function(data) {
     function populate_legend(legendColor) {
         if (legendColor > 5) {
             return '#420D09'
-        } else if (legendColor > 4) {
+            }
+        else if (legendColor > 4) {
             return '#800000'
-        } else if (legendColor > 3) {
+            }
+        else if (legendColor > 3) {
             return '#CA3433'
-        } else if (legendColor > 2) {
+            }
+        else if (legendColor > 2) {
             return '#FD6802'
-        } else if (legendColor > 1) {
+            }
+        else if (legendColor > 1) {
             return '#FFBF00'
-        } else {
+            }
+        else {
             return '#FFF200'
         }
     };
 
 legend = L.control({ position: 'bottomleft' });
+
     legend.onAdd = function(myMap) {
         div = L.DomUtil.create('div', 'info legend')
         legendColors = [0, 1, 2, 3, 4, 5]
@@ -109,4 +115,5 @@ legend = L.control({ position: 'bottomleft' });
         }
         return div
     };
+
     legend.addTo(myMap);
