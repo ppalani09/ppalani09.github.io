@@ -1,0 +1,3 @@
+// API key
+const API_KEY = "pk.eyJ1IjoicHVzaHkybWF4IiwiYSI6ImNrbHVnbnJ2NjIyNmEydWxiZ2swM3YyOTgifQ.uLFl4TqFjkaVVgHgI2MXIw";
+// public token: pk.eyJ1IjoicHVzaHkybWF4IiwiYSI6ImNrbHN0OHg2dTFhdmoyb28wYjhua2YxazIifQ.f4Yu2SVQKQnkIfJ_opQAkw
